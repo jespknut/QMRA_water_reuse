@@ -1,0 +1,163 @@
+{
+  "REF_ECOLI": {
+    "Author": "QMRA Wiki",
+    "Title": "Escherichia coli",
+    "Year": 2023,
+    "DOI": "",
+    "Link": "https://qmrawiki.canr.msu.edu/index.php/Escherichia_coli"
+  },
+  "REF_GIARDIA": {
+    "Author": "QMRA Wiki",
+    "Title": "Giardia",
+    "Year": 2023,
+    "DOI": "",
+    "Link": "https://qmrawiki.canr.msu.edu/index.php/Giardia"
+  },
+  "REF_SALMONELLA": {
+    "Author": "QMRA Wiki",
+    "Title": "Salmonella",
+    "Year": 2023,
+    "DOI": "",
+    "Link": "https://qmrawiki.canr.msu.edu/index.php/Salmonella"
+  },
+  "REF_SHIGELLA": {
+    "Author": "QMRA Wiki",
+    "Title": "Shigella",
+    "Year": 2023,
+    "DOI": "",
+    "Link": "https://qmrawiki.canr.msu.edu/index.php/Shigella"
+  },
+  "REF_ROTAVIRUS": {
+    "Author": "QMRA Wiki",
+    "Title": "Rotavirus",
+    "Year": 2023,
+    "DOI": "",
+    "Link": "https://qmrawiki.canr.msu.edu/index.php/Rotavirus"
+  },
+  "REF_CRYPTO": {
+    "Author": "QMRA Wiki",
+    "Title": "Cryptosporidium parvum",
+    "Year": 2023,
+    "DOI": "",
+    "Link": "https://qmrawiki.canr.msu.edu/index.php/Cryptosporidium_parvum"
+  },
+  "REF_M_AVIUM": {
+    "Author": "To be completed",
+    "Title": "Mycobacterium avium dose-response data",
+    "Year": "",
+    "DOI": "",
+    "Link": ""
+  },
+  "REF_P_AERUGINOSA": {
+    "Author": "To be completed",
+    "Title": "Pseudomonas aeruginosa dose-response data",
+    "Year": "",
+    "DOI": "",
+    "Link": ""
+  },
+  "REF_ADENOVIRUS": {
+    "Author": "QMRA Wiki",
+    "Title": "Adenovirus",
+    "Year": 2023,
+    "DOI": "",
+    "Link": "https://qmrawiki.canr.msu.edu/index.php/Adenovirus"
+  },
+  "REF_ENTEROVIRUS": {
+    "Author": "QMRA Wiki",
+    "Title": "Enterovirus",
+    "Year": 2023,
+    "DOI": "",
+    "Link": "https://qmrawiki.canr.msu.edu/index.php/Enterovirus"
+  },
+  "REF_HEPATITIS_A": {
+    "Author": "QMRA Wiki",
+    "Title": "Hepatitis A virus",
+    "Year": 2023,
+    "DOI": "",
+    "Link": "https://qmrawiki.canr.msu.edu/index.php/Hepatitis_A_virus"
+  },
+  "REF_LEGIONELLA": {
+    "Author": "QMRA Wiki",
+    "Title": "Legionella pneumophila",
+    "Year": 2023,
+    "DOI": "",
+    "Link": "https://qmrawiki.canr.msu.edu/index.php/Legionella_pneumophila"
+  }, 
+  "REF_EXP_SHOWER": {
+    "Author": "US EPA",
+    "Title": "Exposure Factors Handbook",
+    "Year": 2011,
+    "DOI": "",
+    "Link": "https://cfpub.epa.gov/ncea/risk/recordisplay.cfm?deid=236252"
+  },
+  "REF_EXP_WHO": {
+    "Author": "WHO",
+    "Title": "Guidelines for the safe use of wastewater, excreta and greywater",
+    "Year": 2006,
+    "DOI": "",
+    "Link": "https://www.who.int/publications/i/item/9241546859"
+  },
+  "REF_EXP_HAAS": {
+    "Author": "Haas et al.",
+    "Title": "Quantitative Microbial Risk Assessment, 2nd Edition",
+    "Year": 2014,
+    "DOI": "",
+    "Link": ""
+  },
+  "REF_TREAT_WHO": {
+    "Author": "WHO",
+    "Title": "Guidelines for the safe use of wastewater, excreta and greywater, Volume 4",
+    "Year": 2006,
+    "DOI": "",
+    "Link": "https://www.who.int/publications/i/item/9241546859"
+  },
+  "REF_TREAT_EPA_UV": {
+    "Author": "US EPA",
+    "Title": "LT2ESWTR Disinfection Guidance Manual",
+    "Year": 2006,
+    "DOI": "",
+    "Link": "https://nepis.epa.gov/Exe/ZyPDF.cgi/P1004X6Y.PDF?Dockey=P1004X6Y.PDF"
+  },
+  "REF_TREAT_HAAS": {
+    "Author": "Haas et al.",
+    "Title": "Quantitative Microbial Risk Assessment, 2nd Edition",
+    "Year": 2014,
+    "DOI": "",
+    "Link": ""
+  },
+  "REF_OCC_SCITOTENV_2014": {
+    "Author": "Li et al.",
+    "Title": "Greywater characteristics and treatment performance...",
+    "Year": 2014,
+    "DOI": "10.1016/j.scitotenv.2014.11.051",
+    "Link": "https://doi.org/10.1016/j.scitotenv.2014.11.051"
+  },
+  "REF_OCC_WST_2004": {
+    "Author": "Ottoson & Stenström",
+    "Title": "Faecal contamination of greywater and associated microbial risks...",
+    "Year": 2004,
+    "DOI": "10.2166/wst.2004.0115",
+    "Link": "https://doi.org/10.2166/wst.2004.0115"
+  },
+  "REF_OCC_ENV_MONITOR_2006": {
+    "Author": "Eriksson et al.",
+    "Title": "Greywater analysis and microbial risks...",
+    "Year": 2006,
+    "DOI": "10.1007/s10661-006-9427-y",
+    "Link": "https://doi.org/10.1007/s10661-006-9427-y"
+  },
+  "REF_OCC_WATER_AIR_SOIL_2008": {
+    "Author": "Al-Jamal & Mahmoud",
+    "Title": "Irrigation with treated wastewater and health risks...",
+    "Year": 2008,
+    "DOI": "10.1007/s11270-008-9874-x",
+    "Link": "https://doi.org/10.1007/s11270-008-9874-x"
+  },
+  "REF_OCC_SCITOTENV_2023": {
+    "Author": "Tang et al.",
+    "Title": "Occurrence of enteric viruses in greywater...",
+    "Year": 2023,
+    "DOI": "10.1016/j.scitotenv.2023.169863",
+    "Link": "https://doi.org/10.1016/j.scitotenv.2023.169863"
+  }
+}

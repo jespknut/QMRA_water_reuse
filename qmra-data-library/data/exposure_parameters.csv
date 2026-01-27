@@ -1,0 +1,7 @@
+Activity,Volume_L,Frequency_per_year,Exposure_route,Aerosol_factor,Inhalation_rate,Duration_min,Deposition_fraction,Reference_ID,Notes
+Shower,50,365,Inhalation,1e-5,0.012,10,0.6,REF_EXP_SHOWER,"Based on Haas et al. for Legionella inhalation"
+Toilet flushing,0.01,1000,Inhalation,5e-6,0.012,1,0.6,REF_EXP_WHO,"Aerosol generation possible, low dose"
+Handwashing,0.01,400,Ingestion,,,,,REF_EXP_WHO,"Values also consistent with Haas et al."
+Irrigation,0.5,60,Ingestion,,,,,REF_EXP_WHO,
+Dishwashing,0.5,300,Ingestion,,,,,REF_EXP_WHO,
+Spray irrigation,0.2,240,Inhalation,2e-5,0.012,30,0.6,REF_EXP_WHO,"Potential for aerosol exposure, modeled as inhalation"

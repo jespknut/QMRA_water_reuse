@@ -1,0 +1,13 @@
+Pathogen,Matrix,Raw_Concentration,Units,Reference_ID
+Escherichia coli,Greywater,70000,CFU/L,REF_OCC_ECOLI
+Giardia,Greywater,1.2,Cysts/L,REF_OCC_GIARDIA
+Salmonella spp.,Greywater,574000,CFU/L,REF_OCC_SALMONELLA
+Shigella spp.,Greywater,50000,CFU/L,REF_OCC_SHIGELLA
+Rotavirus,Greywater,1.0E+07,GC/L,REF_OCC_ROTAVIRUS
+Cryptosporidium parvum,Greywater,11000,Oocysts/L,REF_OCC_CRYPTO
+Mycobacterium avium,Greywater,2800,CFU/L,REF_OCC_M_AVIUM
+Pseudomonas aeruginosa,Greywater,17783.9,CFU/L,REF_OCC_P_AERUGINOSA
+Adenovirus,Greywater,1.0E+06,GC/L,REF_OCC_ADENOVIRUS
+Enterovirus,Greywater,1.0E+06,GC/L,REF_OCC_ENTEROVIRUS
+Hepatit A-virus,Greywater,1.0E+06,GC/L,REF_OCC_HEPATITIS_A
+Legionella pneumophila,Greywater,4500,CFU/L,REF_OCC_LEGIONELLA

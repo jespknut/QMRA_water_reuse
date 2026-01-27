@@ -1,0 +1,13 @@
+Pathogen,Type,Reference_ID
+Escherichia coli,bacteria,REF_ECOLI
+Giardia,protozoa,REF_GIARDIA
+Salmonella spp.,bacteria,REF_SALMONELLA
+Shigella spp.,bacteria,REF_SHIGELLA
+Rotavirus,virus,REF_ROTAVIRUS
+Cryptosporidium parvum,protozoa,REF_CRYPTO
+Mycobacterium avium,bacteria,REF_M_AVIUM
+Pseudomonas aeruginosa,bacteria,REF_P_AERUGINOSA
+Adenovirus,virus,REF_ADENOVIRUS
+Enterovirus,virus,REF_ENTEROVIRUS
+Hepatit A-virus,virus,REF_HEPATITIS_A
+Legionella pneumophila,bacteria,REF_LEGIONELLA
