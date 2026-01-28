@@ -14,61 +14,6 @@ This is the **QMRA Greywater Reuse Simulator**.
 
 Developed for water reuse risk assessment and scenario analysis.
 """
-import torch
-from transformers import AutoTokenizer, AutoModelForCausalLM
-
-MODEL_ID = "LiquidAI/LFM2-1.2B"
-
-@st.cache_resource(show_spinner="Loading local language model...")
-def load_local_llm():
-    tokenizer = AutoTokenizer.from_pretrained(MODEL_ID)
-    model = AutoModelForCausalLM.from_pretrained(
-        MODEL_ID,
-        torch_dtype=torch.float32
-    )
-    model.eval()
-    return tokenizer, model
-
-tokenizer, model = load_local_llm()
-
-SYSTEM_PROMPT = (
-    "You are a professional water reuse consultant. "
-    "Rewrite quantitative QMRA results into a neutral, "
-    "scientifically accurate narrative. "
-    "Do not introduce new assumptions or recommendations."
-)
-
-def generate_ai_summary(
-    prompt_text,
-    max_new_tokens=350,
-    temperature=0.4,
-    top_p=0.9
-):
-    full_prompt = f"""
-{SYSTEM_PROMPT}
-
-QMRA results:
-{prompt_text}
-
-Professional summary:
-"""
-
-    inputs = tokenizer(full_prompt, return_tensors="pt")
-
-    with torch.no_grad():
-        output = model.generate(
-            **inputs,
-            max_new_tokens=max_new_tokens,
-            temperature=temperature,
-            top_p=top_p,
-            do_sample=True,
-            pad_token_id=tokenizer.eos_token_id
-        )
-
-    text = tokenizer.decode(output[0], skip_special_tokens=True)
-
-    # Return only generated continuation (valfritt men snyggt)
-    return text[len(full_prompt):].strip()
 
 
 
@@ -132,12 +77,6 @@ population_size = st.sidebar.number_input("Number of exposed users", min_value=1
 modifiers = st.sidebar.multiselect(
     "Optional risk modifiers (future)",
     ["Children only", "Immunocompromised", "Conservative (50% ↑ exposure)", "Behavioral reduction (50% ↓)"]
-)
-
-st.sidebar.header("AI assistance")
-use_ai = st.sidebar.checkbox(
-    "Generate AI interpretation (local)",
-    value=True
 )
 
 
