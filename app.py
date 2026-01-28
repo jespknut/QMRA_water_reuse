@@ -347,51 +347,6 @@ if st.button("Run QMRA Simulation"):
             ax_risk.set_ylabel("Frequency")
             st.pyplot(fig_risk)
         
-        # --- AI summary prompt generation ---
-        st.markdown("### 🤖 AI-Powered Report Summary")
-
-        top_contributors = mean_contrib.head(3).to_string()
-
-        prompt = f"""
-        Write a summary for a quantitative microbial risk assessment scenario.
-
-        Water source: {water_source}
-        Reuse activities: {', '.join(selected_activities)}
-        Pathogens simulated: {', '.join(selected_pathogens)}
-        Treatment train: {', '.join([f"{s} ({treatment_status[s]})" for s in selected_treatments])}
-        Number of exposed users: {population_size}
-
-        Median total DALY: {p50:.2e}
-        95th percentile DALY: {p95:.2e}
-
-        Median total expected cases per person-year: {p50_cases:.2e}
-        95th percentile expected cases: {p95_cases:.2e}
-
-        Median total infection probability: {p50_pinf:.2e}
-        95th percentile infection probability: {p95_pinf:.2e}
-
-        Median total annual risk of infection: {p50_risk:.2e}
-        95th percentile annual risk: {p95_risk:.2e}
-
-        WHO benchmark: 1e-6 DALY/person-year
-
-        Top 3 contributing pathogens:
-        {top_contributors}
-
-        Interpret this in a professional tone and offer practical recommendations.
-        """
-
-        try:
-            with st.spinner("Generating AI summary..."):
-                if use_ai:
-                    ai_summary = generate_ai_summary(prompt)
-                else:
-                    ai_summary = None
-                st.success("Summary generated.")
-                st.text_area("AI-generated report summary", ai_summary, height=300)
-        except Exception as e:
-            st.error(f"AI summary generation failed: {e}")
-
-
+        
     else:
         st.warning("No results generated.")
