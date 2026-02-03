@@ -139,12 +139,13 @@ if st.button("Run QMRA Simulation"):
             else:
                 st.warning(f"No DALY_per_person values for {pathogen} – skipping.")
 
-        # Build single DataFrame
+        # Build single DataFrame: one column per pathogen
         total_daly_df = pd.concat(all_daly, axis=1)
         total_daly_df.columns = selected_pathogens
 
-        # Sum across pathogens per row
-        total_daly = total_daly_df.sum(axis=1)
+        # --- Method A: Max DALY per iteration ---
+        total_daly = total_daly_df.max(axis=1)
+
         
                
         # Compute total Expected cases, Annual risk, and Infection probability
