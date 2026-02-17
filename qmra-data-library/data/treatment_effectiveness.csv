@@ -11,7 +11,7 @@ GAC filter,protozoa,1.0E+08,1.5,0.5,REF_TREAT_WHO,
 Raised plant bed,virus,1.0E+08,1.5,0.3,REF_TREAT_WHO,"Modeled like soil filter"
 Raised plant bed,bacteria,1.0E+08,2.0,0.3,REF_TREAT_WHO,
 Raised plant bed,protozoa,1.0E+08,1.5,0.3,REF_TREAT_WHO,
-UV,virus,1.0E+08,4.0,0.2,REF_TREAT_EPA_UV,"≥40 mJ/cm² dose"
+UV,virus,1.0E+08,3.0,0.5,REF_TREAT_EPA_UV,"Reduced from 4.0 to 3.0; adenovirus requires 186 mJ/cm2 for 4-log. SD increased to 0.5 to reflect variability across virus types"
 UV,bacteria,1.0E+08,3.0,0.2,REF_TREAT_EPA_UV,
 UV,protozoa,1.0E+08,2.5,0.2,REF_TREAT_EPA_UV,
 Chlorination,virus,1.0E+04,3.0,0.3,REF_TREAT_WHO,"Lower Ct levels"
@@ -20,7 +20,7 @@ Chlorination,bacteria,1.0E+04,2.5,0.2,REF_TREAT_WHO,
 Chlorination,bacteria,1.0E+08,3.5,0.2,REF_TREAT_WHO,
 Chlorination,protozoa,1.0E+04,0.5,0.2,REF_TREAT_WHO,"Cryptosporidium highly resistant"
 Chlorination,protozoa,1.0E+08,1.0,0.2,REF_TREAT_WHO,
-Ultrafiltration,virus,1.0E+08,3.5,0.3,REF_TREAT_EPA_UV,
+Ultrafiltration,virus,1.0E+08,3.5,0.3,REF_TREAT_EPA_UV,"Mechanistic LRV; note regulatory frameworks may not credit virus removal for UF"
 Ultrafiltration,bacteria,1.0E+08,4.5,0.3,REF_TREAT_EPA_UV,
 Ultrafiltration,protozoa,1.0E+08,5.0,0.3,REF_TREAT_EPA_UV,
 Nanofiltration,virus,1.0E+04,4.0,0.3,REF_TREAT_EPA_UV,

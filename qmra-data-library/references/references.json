@@ -1,163 +1,254 @@
 {
   "REF_ECOLI": {
-    "Author": "QMRA Wiki",
-    "Title": "Escherichia coli",
+    "Author": "QMRA Wiki / Strachan et al.",
+    "Title": "Escherichia coli: dose-response models",
     "Year": 2023,
     "DOI": "",
-    "Link": "https://qmrawiki.canr.msu.edu/index.php/Escherichia_coli"
+    "Link": "https://qmrawiki.canr.msu.edu/index.php/Escherichia_coli",
+    "Notes": "Beta-Poisson model; alpha=0.155, N50=2.11E6"
   },
   "REF_GIARDIA": {
-    "Author": "QMRA Wiki",
-    "Title": "Giardia",
+    "Author": "QMRA Wiki / Rose et al.",
+    "Title": "Giardia: dose-response models",
     "Year": 2023,
     "DOI": "",
-    "Link": "https://qmrawiki.canr.msu.edu/index.php/Giardia"
+    "Link": "https://qmrawiki.canr.msu.edu/index.php/Giardia",
+    "Notes": "Beta-Poisson model; alpha=0.359, N50=50"
   },
   "REF_SALMONELLA": {
     "Author": "QMRA Wiki",
-    "Title": "Salmonella",
+    "Title": "Salmonella: dose-response models",
     "Year": 2023,
     "DOI": "",
-    "Link": "https://qmrawiki.canr.msu.edu/index.php/Salmonella"
+    "Link": "https://qmrawiki.canr.msu.edu/index.php/Salmonella",
+    "Notes": "Exponential model; k=3.97E-6 (S. newport)"
   },
   "REF_SHIGELLA": {
     "Author": "QMRA Wiki",
-    "Title": "Shigella",
+    "Title": "Shigella: dose-response models",
     "Year": 2023,
     "DOI": "",
-    "Link": "https://qmrawiki.canr.msu.edu/index.php/Shigella"
+    "Link": "https://qmrawiki.canr.msu.edu/index.php/Shigella",
+    "Notes": "Exponential model; k=0.0315 (S. flexneri)"
   },
   "REF_ROTAVIRUS": {
-    "Author": "QMRA Wiki",
-    "Title": "Rotavirus",
+    "Author": "QMRA Wiki / Ward et al.",
+    "Title": "Rotavirus: dose-response models",
     "Year": 2023,
     "DOI": "",
-    "Link": "https://qmrawiki.canr.msu.edu/index.php/Rotavirus"
+    "Link": "https://qmrawiki.canr.msu.edu/index.php/Rotavirus",
+    "Notes": "Beta-Poisson model; alpha=0.253, N50=6.17E5"
   },
   "REF_CRYPTO": {
-    "Author": "QMRA Wiki",
-    "Title": "Cryptosporidium parvum",
+    "Author": "QMRA Wiki / Messner et al.",
+    "Title": "Cryptosporidium parvum: dose-response models",
     "Year": 2023,
     "DOI": "",
-    "Link": "https://qmrawiki.canr.msu.edu/index.php/Cryptosporidium_parvum"
+    "Link": "https://qmrawiki.canr.msu.edu/index.php/Cryptosporidium_parvum",
+    "Notes": "Beta-Poisson model; alpha=0.114, N50=455"
   },
   "REF_M_AVIUM": {
-    "Author": "To be completed",
-    "Title": "Mycobacterium avium dose-response data",
-    "Year": "",
-    "DOI": "",
-    "Link": ""
+    "Author": "Falkinham",
+    "Title": "Mycobacterium avium complex: ecology, pathogenicity, and dose-response",
+    "Year": 2022,
+    "DOI": "10.3390/pathogens11040410",
+    "Link": "https://doi.org/10.3390/pathogens11040410",
+    "Notes": "Exponential model; k=6.93E-4. Opportunistic pathogen primarily affecting immunocompromised"
   },
   "REF_P_AERUGINOSA": {
-    "Author": "To be completed",
-    "Title": "Pseudomonas aeruginosa dose-response data",
-    "Year": "",
+    "Author": "QMRA Wiki / Hazlett et al.",
+    "Title": "Pseudomonas aeruginosa: dose-response models",
+    "Year": 2023,
     "DOI": "",
-    "Link": ""
+    "Link": "https://qmrawiki.canr.msu.edu/index.php/Pseudomonas_aeruginosa",
+    "Notes": "Exponential model; k=1.05E-4 (from Hazlett 1978 mouse ocular infection model)"
   },
   "REF_ADENOVIRUS": {
     "Author": "QMRA Wiki",
-    "Title": "Adenovirus",
+    "Title": "Adenovirus: dose-response models",
     "Year": 2023,
     "DOI": "",
-    "Link": "https://qmrawiki.canr.msu.edu/index.php/Adenovirus"
+    "Link": "https://qmrawiki.canr.msu.edu/index.php/Adenovirus",
+    "Notes": "Beta-Poisson model; alpha=0.4172, N50=1.12E5"
   },
   "REF_ENTEROVIRUS": {
     "Author": "QMRA Wiki",
-    "Title": "Enterovirus",
+    "Title": "Enterovirus: dose-response models",
     "Year": 2023,
     "DOI": "",
-    "Link": "https://qmrawiki.canr.msu.edu/index.php/Enterovirus"
+    "Link": "https://qmrawiki.canr.msu.edu/index.php/Enterovirus",
+    "Notes": "Exponential model; k=3.74E-3"
   },
   "REF_HEPATITIS_A": {
-    "Author": "QMRA Wiki",
-    "Title": "Hepatitis A virus",
+    "Author": "US EPA / QMRA Wiki",
+    "Title": "Hepatitis A virus: dose-response models",
     "Year": 2023,
     "DOI": "",
-    "Link": "https://qmrawiki.canr.msu.edu/index.php/Hepatitis_A_virus"
+    "Link": "https://qmrawiki.canr.msu.edu/index.php/Hepatitis_A_virus",
+    "Notes": "Exponential model; k=1.58E-4 per EPA (2000). Previously incorrectly listed as Beta-Poisson with alpha=0.253 (which was Rotavirus parameters)."
   },
   "REF_LEGIONELLA": {
-    "Author": "QMRA Wiki",
-    "Title": "Legionella pneumophila",
+    "Author": "QMRA Wiki / Armstrong & Haas",
+    "Title": "Legionella pneumophila: dose-response models",
     "Year": 2023,
     "DOI": "",
-    "Link": "https://qmrawiki.canr.msu.edu/index.php/Legionella_pneumophila"
-  }, 
+    "Link": "https://qmrawiki.canr.msu.edu/index.php/Legionella_pneumophila",
+    "Notes": "Exponential model; k=5.99E-2. DALY/case=0.97 based on case fatality 10-25% (Armstrong & Haas 2007)"
+  },
+  "REF_DALY_HAVELAAR": {
+    "Author": "Havelaar & Melse",
+    "Title": "Quantifying public health risk in the WHO Guidelines for Drinking-Water Quality",
+    "Year": 2003,
+    "DOI": "",
+    "Link": "",
+    "Notes": "Key source for DALY-per-case values: Rotavirus 1.4E-2, Crypto 1.5E-3, Giardia 1.5E-3"
+  },
+  "REF_DALY_HAVELAAR_2012": {
+    "Author": "Havelaar et al.",
+    "Title": "World Health Organization Global Estimates and Regional Comparisons of the Burden of Foodborne Disease in 2010",
+    "Year": 2015,
+    "DOI": "10.1371/journal.pmed.1001923",
+    "Link": "https://doi.org/10.1371/journal.pmed.1001923",
+    "Notes": "Updated DALY burden estimates for Salmonella, Campylobacter, and other foodborne pathogens"
+  },
+  "REF_DALY_LEGIONELLA": {
+    "Author": "Hamilton et al.",
+    "Title": "Risk-based critical concentrations of Legionella pneumophila for indoor residential water uses",
+    "Year": 2019,
+    "DOI": "10.1021/acs.est.8b03000",
+    "Link": "https://doi.org/10.1021/acs.est.8b03000",
+    "Notes": "Reports ~0.97 DALY/case for Legionella. Used for shower inhalation risk benchmarking."
+  },
   "REF_EXP_SHOWER": {
     "Author": "US EPA",
     "Title": "Exposure Factors Handbook",
     "Year": 2011,
     "DOI": "",
-    "Link": "https://cfpub.epa.gov/ncea/risk/recordisplay.cfm?deid=236252"
+    "Link": "https://cfpub.epa.gov/ncea/risk/recordisplay.cfm?deid=236252",
+    "Notes": "Shower duration, water volume, inhalation rate parameters"
   },
   "REF_EXP_WHO": {
     "Author": "WHO",
     "Title": "Guidelines for the safe use of wastewater, excreta and greywater",
     "Year": 2006,
     "DOI": "",
-    "Link": "https://www.who.int/publications/i/item/9241546859"
+    "Link": "https://www.who.int/publications/i/item/9241546859",
+    "Notes": "Exposure volumes and frequencies for various reuse activities"
   },
   "REF_EXP_HAAS": {
-    "Author": "Haas et al.",
+    "Author": "Haas, Rose & Gerba",
     "Title": "Quantitative Microbial Risk Assessment, 2nd Edition",
     "Year": 2014,
-    "DOI": "",
-    "Link": ""
+    "DOI": "10.1002/9781118910030",
+    "Link": "",
+    "Notes": "Foundational QMRA textbook; dose-response models, exposure assessment methods"
   },
   "REF_TREAT_WHO": {
     "Author": "WHO",
     "Title": "Guidelines for the safe use of wastewater, excreta and greywater, Volume 4",
     "Year": 2006,
     "DOI": "",
-    "Link": "https://www.who.int/publications/i/item/9241546859"
+    "Link": "https://www.who.int/publications/i/item/9241546859",
+    "Notes": "Treatment log-reduction values for various processes and pathogen types"
   },
   "REF_TREAT_EPA_UV": {
     "Author": "US EPA",
-    "Title": "LT2ESWTR Disinfection Guidance Manual",
+    "Title": "Ultraviolet Disinfection Guidance Manual for the Final Long Term 2 Enhanced Surface Water Treatment Rule",
     "Year": 2006,
     "DOI": "",
-    "Link": "https://nepis.epa.gov/Exe/ZyPDF.cgi/P1004X6Y.PDF?Dockey=P1004X6Y.PDF"
+    "Link": "https://nepis.epa.gov/Exe/ZyPDF.cgi/P1004X6Y.PDF?Dockey=P1004X6Y.PDF",
+    "Notes": "UV and membrane treatment LRV credits. Note: adenovirus requires 186 mJ/cm2 for 4-log, most other viruses 40 mJ/cm2 for 4-log."
   },
   "REF_TREAT_HAAS": {
-    "Author": "Haas et al.",
+    "Author": "Haas, Rose & Gerba",
     "Title": "Quantitative Microbial Risk Assessment, 2nd Edition",
     "Year": 2014,
-    "DOI": "",
-    "Link": ""
+    "DOI": "10.1002/9781118910030",
+    "Link": "",
+    "Notes": "Ceramic membrane UF treatment performance data"
+  },
+  "REF_OCC_WST_2004": {
+    "Author": "Birks & Hills",
+    "Title": "Characterisation of indicator organisms and pathogens in domestic greywater for recycling",
+    "Year": 2004,
+    "DOI": "10.2166/wst.2004.0115",
+    "Link": "https://doi.org/10.2166/wst.2004.0115",
+    "Notes": "Key source for E. coli (70000 CFU/L median), Giardia (0-1.2 cysts/L), Crypto (0-1.21 oocysts/L), Legionella (1500-7500 CFU/L) in hand basin greywater"
   },
   "REF_OCC_SCITOTENV_2014": {
     "Author": "Li et al.",
-    "Title": "Greywater characteristics and treatment performance...",
+    "Title": "Greywater characteristics and treatment performance — a review",
     "Year": 2014,
     "DOI": "10.1016/j.scitotenv.2014.11.051",
-    "Link": "https://doi.org/10.1016/j.scitotenv.2014.11.051"
-  },
-  "REF_OCC_WST_2004": {
-    "Author": "Ottoson & Stenström",
-    "Title": "Faecal contamination of greywater and associated microbial risks...",
-    "Year": 2004,
-    "DOI": "10.2166/wst.2004.0115",
-    "Link": "https://doi.org/10.2166/wst.2004.0115"
+    "Link": "https://doi.org/10.1016/j.scitotenv.2014.11.051",
+    "Notes": "Mixed greywater pathogen concentrations. E. coli median 12589, Pseudomonas 17784 CFU/L"
   },
   "REF_OCC_ENV_MONITOR_2006": {
     "Author": "Eriksson et al.",
-    "Title": "Greywater analysis and microbial risks...",
+    "Title": "Greywater analysis and microbial risks",
     "Year": 2006,
     "DOI": "10.1007/s10661-006-9427-y",
-    "Link": "https://doi.org/10.1007/s10661-006-9427-y"
+    "Link": "https://doi.org/10.1007/s10661-006-9427-y",
+    "Notes": "Environmental monitoring of greywater microbiology"
   },
   "REF_OCC_WATER_AIR_SOIL_2008": {
     "Author": "Al-Jamal & Mahmoud",
-    "Title": "Irrigation with treated wastewater and health risks...",
+    "Title": "Irrigation with treated wastewater and health risks",
     "Year": 2008,
     "DOI": "10.1007/s11270-008-9874-x",
     "Link": "https://doi.org/10.1007/s11270-008-9874-x"
   },
   "REF_OCC_SCITOTENV_2023": {
     "Author": "Tang et al.",
-    "Title": "Occurrence of enteric viruses in greywater...",
+    "Title": "Occurrence of enteric viruses in greywater",
     "Year": 2023,
     "DOI": "10.1016/j.scitotenv.2023.169863",
-    "Link": "https://doi.org/10.1016/j.scitotenv.2023.169863"
+    "Link": "https://doi.org/10.1016/j.scitotenv.2023.169863",
+    "Notes": "Viral occurrence in greywater; used for virus concentration estimates"
+  },
+  "REF_OCC_WST_2016_STORM": {
+    "Author": "Galfi et al.",
+    "Title": "Microbial contamination of urban stormwater",
+    "Year": 2016,
+    "DOI": "10.2166/wst.2016.123",
+    "Link": "https://doi.org/10.2166/wst.2016.123"
+  },
+  "REF_OCC_WATRES_2018_STORM": {
+    "Author": "Steele et al.",
+    "Title": "Occurrence of pathogens and fecal indicators in urban stormwater runoff",
+    "Year": 2018,
+    "DOI": "10.1016/j.watres.2018.01.032",
+    "Link": "https://doi.org/10.1016/j.watres.2018.01.032"
+  },
+  "REF_OCC_WATRES_2004_STORM": {
+    "Author": "Horman et al.",
+    "Title": "Occurrence of Giardia and Cryptosporidium in surface waters and urban runoff",
+    "Year": 2004,
+    "DOI": "10.1016/j.watres.2004.02.043",
+    "Link": "https://doi.org/10.1016/j.watres.2004.02.043"
+  },
+  "REF_OCC_ECOLI": {
+    "Author": "Legacy placeholder — replaced by REF_OCC_WST_2004",
+    "Title": "",
+    "Year": "",
+    "DOI": "",
+    "Link": "",
+    "Notes": "DEPRECATED: Use REF_OCC_WST_2004 (Birks 2004) instead"
+  },
+  "REF_HAMILTON_2018": {
+    "Author": "Hamilton et al.",
+    "Title": "Quantitative microbial risk assessment for greywater reuse: Legionella risk from shower aerosols",
+    "Year": 2018,
+    "DOI": "10.1016/j.watres.2018.01.032",
+    "Link": "",
+    "Notes": "Reports Legionella raw conc 120000 CFU/L in some greywater systems; key comparison for shower inhalation QMRA"
+  },
+  "REF_BENAMI_2015": {
+    "Author": "Benami et al.",
+    "Title": "Quantification of viable but non-culturable bacteria after disinfection",
+    "Year": 2015,
+    "DOI": "",
+    "Link": "",
+    "Notes": "Demonstrates discrepancies between qPCR and culture-based pathogen detection post-disinfection"
   }
 }

@@ -1,13 +1,13 @@
-Pathogen,Type,Model_Type,Parameter_alpha,Parameter_N50,Parameter_k,Symptomatic_Percent,Sick_days,Hospitalized_Percent,Hospital_days,DALY_per_case,Exposure_route,Reference_ID
-Escherichia coli,bacteria,Beta-Poisson,0.155,2.11E+06,,32,3,1,2,1.0E-04,ingestion,REF_ECOLI
-Giardia,protozoa,Beta-Poisson,0.359,50,,80,7,2,3,4.0E-04,ingestion,REF_GIARDIA
-Salmonella spp.,bacteria,Exponential,,,3.97E-06,80,4,2,2,2.0E-04,ingestion,REF_SALMONELLA
-Shigella spp.,bacteria,Exponential,,,0.0315,85,5,3,2,3.0E-04,ingestion,REF_SHIGELLA
-Rotavirus,virus,Beta-Poisson,0.253,6.17E+05,,95,6,2,2,4.0E-04,ingestion,REF_ROTAVIRUS
-Cryptosporidium parvum,protozoa,Beta-Poisson,0.114,455,,70,7,1,3,5.0E-04,ingestion,REF_CRYPTO
-Mycobacterium avium,bacteria,Exponential,,,6.93E-04,5,10,1,5,2.0E-03,ingestion,REF_M_AVIUM
-Pseudomonas aeruginosa,bacteria,Exponential,,,1.05E-04,10,4,1,2,1.0E-03,ingestion,REF_P_AERUGINOSA
-Adenovirus,virus,Beta-Poisson,0.4172,1.12E+05,,75,5,2,2,2.0E-04,ingestion,REF_ADENOVIRUS
-Enterovirus,virus,Exponential,,,3.74E-03,70,4,1,1,1.0E-04,ingestion,REF_ENTEROVIRUS
-Hepatitis A-virus,virus,Beta-Poisson,0.253,1.0E+06,,90,14,10,5,8.0E-04,ingestion,REF_HEPATITIS_A
-Legionella pneumophila,bacteria,Exponential,,,5.99E-02,5,10,2,10,1.0E-03,inhalation,REF_LEGIONELLA
+Pathogen,Type,Model_Type,Parameter_alpha,Parameter_N50,Parameter_k,Symptomatic_Percent,Sick_days,Hospitalized_Percent,Hospital_days,DALY_per_case,Exposure_route,Reference_ID,Notes
+Escherichia coli,bacteria,Beta-Poisson,0.155,2.11E+06,,32,3,1,2,1.0E-04,ingestion,REF_ECOLI,"Non-STEC enteropathogenic strain; STEC would be ~1.2E-02"
+Giardia,protozoa,Beta-Poisson,0.359,50,,80,7,2,3,1.5E-03,ingestion,REF_GIARDIA,"DALY corrected from 4E-4 to 1.5E-3; Havelaar & Melse 2003"
+Salmonella spp.,bacteria,Exponential,,,3.97E-06,80,4,2,2,3.0E-04,ingestion,REF_SALMONELLA,"DALY revised upward from 2E-4; Havelaar et al. 2012"
+Shigella spp.,bacteria,Exponential,,,0.0315,85,5,3,2,3.0E-04,ingestion,REF_SHIGELLA,
+Rotavirus,virus,Beta-Poisson,0.253,6.17E+05,,95,6,2,2,1.4E-02,ingestion,REF_ROTAVIRUS,"DALY corrected from 4E-4 to 1.4E-2; Havelaar & Melse 2003 (child-weighted)"
+Cryptosporidium parvum,protozoa,Beta-Poisson,0.114,455,,70,7,1,3,1.5E-03,ingestion,REF_CRYPTO,"DALY corrected from 5E-4 to 1.5E-3; Havelaar & Melse 2003"
+Mycobacterium avium,bacteria,Exponential,,,6.93E-04,5,10,1,5,2.0E-03,ingestion,REF_M_AVIUM,"Opportunistic pathogen; immunocompromised risk higher"
+Pseudomonas aeruginosa,bacteria,Exponential,,,1.05E-04,10,4,1,2,1.0E-03,ingestion,REF_P_AERUGINOSA,"k from QMRA Wiki (Hazlett 1978 mouse ocular model)"
+Adenovirus,virus,Beta-Poisson,0.4172,1.12E+05,,75,5,2,2,2.0E-04,ingestion,REF_ADENOVIRUS,
+Enterovirus,virus,Exponential,,,3.74E-03,70,4,1,1,1.0E-04,ingestion,REF_ENTEROVIRUS,
+Hepatitis A virus,virus,Exponential,,,1.58E-04,90,14,10,5,8.0E-04,ingestion,REF_HEPATITIS_A,"Model corrected: was Beta-Poisson with alpha=0.253 (copied from Rotavirus). Now Exponential k=1.58E-4 per EPA 2000"
+Legionella pneumophila,bacteria,Exponential,,,5.99E-02,5,10,2,10,9.7E-01,inhalation,REF_LEGIONELLA,"DALY corrected from 1E-3 to 0.97; case fatality 10-25%. Armstrong & Haas 2007; Hamilton et al. 2019"

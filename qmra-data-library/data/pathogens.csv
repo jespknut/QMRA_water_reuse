@@ -9,5 +9,8 @@ Mycobacterium avium,bacteria,REF_M_AVIUM
 Pseudomonas aeruginosa,bacteria,REF_P_AERUGINOSA
 Adenovirus,virus,REF_ADENOVIRUS
 Enterovirus,virus,REF_ENTEROVIRUS
-Hepatit A-virus,virus,REF_HEPATITIS_A
+Hepatitis A virus,virus,REF_HEPATITIS_A
 Legionella pneumophila,bacteria,REF_LEGIONELLA
+Campylobacter spp.,bacteria,REF_CAMPYLOBACTER
+Norovirus GII,virus,REF_NOROVIRUS
+

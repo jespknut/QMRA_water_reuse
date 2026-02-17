@@ -1,7 +1,7 @@
 Activity,Volume_L,Frequency_per_year,Exposure_route,Aerosol_factor,Inhalation_rate,Duration_min,Deposition_fraction,Reference_ID,Notes
-Shower,50,365,Inhalation,1e-5,0.012,10,0.6,REF_EXP_SHOWER,"Based on Haas et al. for Legionella inhalation"
-Toilet flushing,0.01,1000,Inhalation,5e-6,0.012,1,0.6,REF_EXP_WHO,"Aerosol generation possible, low dose"
-Handwashing,0.01,400,Ingestion,,,,,REF_EXP_WHO,"Values also consistent with Haas et al."
-Irrigation,0.5,60,Ingestion,,,,,REF_EXP_WHO,
-Dishwashing,0.5,300,Ingestion,,,,,REF_EXP_WHO,
-Spray irrigation,0.2,240,Inhalation,2e-5,0.012,30,0.6,REF_EXP_WHO,"Potential for aerosol exposure, modeled as inhalation"
+Shower,50,365,Inhalation,1e-5,0.012,10,0.6,REF_EXP_SHOWER,"Total water volume 50 L; aerosol_factor converts to breathable fraction. Effective inhaled-equivalent dose ~3.6e-5 L/event. Consistent with Hamilton et al. 2019 range."
+Toilet flushing,5,1000,Inhalation,5e-6,0.012,1,0.6,REF_EXP_WHO,"Aerosol generation during flush; low duration limits dose"
+Handwashing,0.001,400,Ingestion,,,,,REF_EXP_WHO,"Incidental ingestion volume; Haas et al. 2014"
+Irrigation,0.0005,60,Ingestion,,,,,REF_EXP_WHO,"Incidental ingestion from hand-to-mouth contact during garden irrigation"
+Dishwashing,0.0005,300,Ingestion,,,,,REF_EXP_WHO,"Incidental ingestion from residual water on dishes"
+Spray irrigation,10,240,Inhalation,2e-5,0.012,30,0.6,REF_EXP_WHO,"Outdoor spray; higher volume and duration than shower. Aerosol exposure to bystanders."

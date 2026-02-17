@@ -14,6 +14,61 @@ This is the **QMRA Greywater Reuse Simulator**.
 
 Developed for water reuse risk assessment and scenario analysis.
 """
+import torch
+from transformers import AutoTokenizer, AutoModelForCausalLM
+
+MODEL_ID = "LiquidAI/LFM2-1.2B"
+
+@st.cache_resource(show_spinner="Loading local language model...")
+def load_local_llm():
+    tokenizer = AutoTokenizer.from_pretrained(MODEL_ID)
+    model = AutoModelForCausalLM.from_pretrained(
+        MODEL_ID,
+        torch_dtype=torch.float32
+    )
+    model.eval()
+    return tokenizer, model
+
+tokenizer, model = load_local_llm()
+
+SYSTEM_PROMPT = (
+    "You are a professional water reuse consultant. "
+    "Rewrite quantitative QMRA results into a neutral, "
+    "scientifically accurate narrative. "
+    "Do not introduce new assumptions or recommendations."
+)
+
+def generate_ai_summary(
+    prompt_text,
+    max_new_tokens=350,
+    temperature=0.4,
+    top_p=0.9
+):
+    full_prompt = f"""
+{SYSTEM_PROMPT}
+
+QMRA results:
+{prompt_text}
+
+Professional summary:
+"""
+
+    inputs = tokenizer(full_prompt, return_tensors="pt")
+
+    with torch.no_grad():
+        output = model.generate(
+            **inputs,
+            max_new_tokens=max_new_tokens,
+            temperature=temperature,
+            top_p=top_p,
+            do_sample=True,
+            pad_token_id=tokenizer.eos_token_id
+        )
+
+    text = tokenizer.decode(output[0], skip_special_tokens=True)
+
+    # Return only generated continuation (valfritt men snyggt)
+    return text[len(full_prompt):].strip()
 
 
 
@@ -34,12 +89,6 @@ with st.expander("ℹ️ About this app"):
 # Sidebar inputs
 st.sidebar.header("1. Water Source")
 water_source = st.sidebar.selectbox("Select water source", list(SOURCE_WATER.keys()))
-
-if water_source == "Rooftop rainwater":
-    st.sidebar.caption(
-        "⚠️ Rooftop rainwater is approximated using stormwater data "
-        "scaled by a conservative factor due to lack of direct measurements."
-    )
 
 st.sidebar.header("2. Reuse Activities")
 selected_activities = st.sidebar.multiselect(
@@ -83,6 +132,12 @@ population_size = st.sidebar.number_input("Number of exposed users", min_value=1
 modifiers = st.sidebar.multiselect(
     "Optional risk modifiers (future)",
     ["Children only", "Immunocompromised", "Conservative (50% ↑ exposure)", "Behavioral reduction (50% ↓)"]
+)
+
+st.sidebar.header("AI assistance")
+use_ai = st.sidebar.checkbox(
+    "Generate AI interpretation (local)",
+    value=True
 )
 
 
@@ -145,11 +200,13 @@ if st.button("Run QMRA Simulation"):
             else:
                 st.warning(f"No DALY_per_person values for {pathogen} – skipping.")
 
-        # Build single DataFrame: one column per pathogen
+        # Build single DataFrame
         total_daly_df = pd.concat(all_daly, axis=1)
         total_daly_df.columns = selected_pathogens
 
-        total_daly = total_daly_df.sum(axis=1)    
+        # Sum across pathogens per row
+        total_daly = total_daly_df.sum(axis=1)
+        
                
         # Compute total Expected cases, Annual risk, and Infection probability
         all_expected_cases = []
@@ -175,7 +232,7 @@ if st.button("Run QMRA Simulation"):
 
         # Sum across pathogens for totals
         total_expected_cases = expected_cases_df.sum(axis=1)
-        total_annual_risk = 1 - (1 - annual_risk_df).prod(axis=1)
+        total_annual_risk = annual_risk_df.sum(axis=1)
         total_pinf = pinf_df.sum(axis=1)
 
         # For pathogen-wise plots
@@ -351,6 +408,51 @@ if st.button("Run QMRA Simulation"):
             ax_risk.set_ylabel("Frequency")
             st.pyplot(fig_risk)
         
-        
+        # --- AI summary prompt generation ---
+        st.markdown("### 🤖 AI-Powered Report Summary")
+
+        top_contributors = mean_contrib.head(3).to_string()
+
+        prompt = f"""
+        Write a summary for a quantitative microbial risk assessment scenario.
+
+        Water source: {water_source}
+        Reuse activities: {', '.join(selected_activities)}
+        Pathogens simulated: {', '.join(selected_pathogens)}
+        Treatment train: {', '.join([f"{s} ({treatment_status[s]})" for s in selected_treatments])}
+        Number of exposed users: {population_size}
+
+        Median total DALY: {p50:.2e}
+        95th percentile DALY: {p95:.2e}
+
+        Median total expected cases per person-year: {p50_cases:.2e}
+        95th percentile expected cases: {p95_cases:.2e}
+
+        Median total infection probability: {p50_pinf:.2e}
+        95th percentile infection probability: {p95_pinf:.2e}
+
+        Median total annual risk of infection: {p50_risk:.2e}
+        95th percentile annual risk: {p95_risk:.2e}
+
+        WHO benchmark: 1e-6 DALY/person-year
+
+        Top 3 contributing pathogens:
+        {top_contributors}
+
+        Interpret this in a professional tone and offer practical recommendations.
+        """
+
+        try:
+            with st.spinner("Generating AI summary..."):
+                if use_ai:
+                    ai_summary = generate_ai_summary(prompt)
+                else:
+                    ai_summary = None
+                st.success("Summary generated.")
+                st.text_area("AI-generated report summary", ai_summary, height=300)
+        except Exception as e:
+            st.error(f"AI summary generation failed: {e}")
+
+
     else:
         st.warning("No results generated.")

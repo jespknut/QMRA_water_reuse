@@ -1,13 +1,19 @@
-Pathogen,Matrix,Raw_Concentration,Units,Reference_ID
-Escherichia coli,Greywater,70000,CFU/L,REF_OCC_ECOLI
-Giardia,Greywater,1.2,Cysts/L,REF_OCC_GIARDIA
-Salmonella spp.,Greywater,574000,CFU/L,REF_OCC_SALMONELLA
-Shigella spp.,Greywater,50000,CFU/L,REF_OCC_SHIGELLA
-Rotavirus,Greywater,1.0E+07,GC/L,REF_OCC_ROTAVIRUS
-Cryptosporidium parvum,Greywater,11000,Oocysts/L,REF_OCC_CRYPTO
-Mycobacterium avium,Greywater,2800,CFU/L,REF_OCC_M_AVIUM
-Pseudomonas aeruginosa,Greywater,17783.9,CFU/L,REF_OCC_P_AERUGINOSA
-Adenovirus,Greywater,1.0E+06,GC/L,REF_OCC_ADENOVIRUS
-Enterovirus,Greywater,1.0E+06,GC/L,REF_OCC_ENTEROVIRUS
-Hepatit A-virus,Greywater,1.0E+06,GC/L,REF_OCC_HEPATITIS_A
-Legionella pneumophila,Greywater,4500,CFU/L,REF_OCC_LEGIONELLA
+Pathogen,Matrix,Raw_Concentration,Units,Uncertainty_Log10_SD,Reference_ID,Notes
+Escherichia coli,Greywater,70000,CFU/L,0.6,REF_OCC_WST_2004,"Birks et al. 2004, hand basin greywater median"
+Giardia,Greywater,1.2,Cysts/L,0.5,REF_OCC_WST_2004,"Birks et al. 2004; 0-1.2 cysts/L"
+Salmonella spp.,Greywater,3000,CFU/L,0.8,REF_OCC_SCITOTENV_2014,"Corrected from 574000; literature central estimate for mixed greywater"
+Shigella spp.,Greywater,100,CFU/L,1.0,REF_OCC_SCITOTENV_2014,"Corrected from 50000; rarely detected in greywater, conservative estimate when present"
+Rotavirus,Greywater,1.0E+05,GC/L,0.8,REF_OCC_SCITOTENV_2023,"Corrected from 1E7; greywater not raw sewage. qPCR-based, may overestimate viable organisms"
+Cryptosporidium parvum,Greywater,1.0,Oocysts/L,0.5,REF_OCC_WST_2004,"Corrected from 11000; Birks et al. 2004 reports 0-1.21 oocysts/L in greywater"
+Mycobacterium avium,Greywater,2800,CFU/L,0.5,REF_OCC_ENV_MONITOR_2006,"Falkinham 2022; environmental isolates"
+Pseudomonas aeruginosa,Greywater,17784,CFU/L,0.5,REF_OCC_SCITOTENV_2014,"Li et al. 2014 mixed greywater median"
+Adenovirus,Greywater,1.0E+04,GC/L,0.7,REF_OCC_SCITOTENV_2023,"Corrected from 1E6; greywater estimate. qPCR-based"
+Enterovirus,Greywater,1.0E+03,GC/L,0.8,REF_OCC_SCITOTENV_2023,"Corrected from 1E6; own data shows 0 detected in hand basin greywater"
+Hepatitis A virus,Greywater,1.0E+03,GC/L,0.8,REF_OCC_SCITOTENV_2023,"Corrected from 1E6; greywater estimate. qPCR-based"
+Legionella pneumophila,Greywater,4500,CFU/L,0.5,REF_OCC_WST_2004,"Birks et al. 2004; range 1500-7500. Hamilton et al. report 120000 in some systems"
+Escherichia coli,Stormwater,3600,CFU/L,0.79,REF_OCC_WST_2016_STORM,
+Campylobacter spp.,Stormwater,200,GC/L,0.70,REF_OCC_WATRES_2018_STORM,
+Norovirus GII,Stormwater,120,GC/L,0.60,REF_OCC_WATRES_2018_STORM,
+Adenovirus,Stormwater,240,GC/L,0.12,REF_OCC_WATRES_2018_STORM,
+Giardia,Stormwater,1.0,Cysts/L,0.50,REF_OCC_WATRES_2004_STORM,
+Cryptosporidium parvum,Stormwater,0.17,Oocysts/L,0.30,REF_OCC_WATRES_2004_STORM,

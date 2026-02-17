@@ -55,8 +55,10 @@ for _, row in treat_eff_df.iterrows():
 # Source water factors
 SOURCE_WATER = {
     'Greywater': 1.0,
-    'Rooftop rainwater': 0.01
+    'Stormwater': 1.0,          # uses own data when available
+    'Rooftop rainwater': 0.1         # proxy: scaled from Stormwater or Greywater
 }
+
 
 # --- Helper Functions ---
 
@@ -67,28 +69,42 @@ EXPOSURE_ROUTES = {
 }
 
 def get_raw_concentration(pathogen_name, matrix='Greywater'):
-    # Try to find direct entry
+    # 1. Direct match
     row = raw_conc_df[
         (raw_conc_df['Pathogen'] == pathogen_name) &
         (raw_conc_df['Matrix'] == matrix)
     ]
     if not row.empty:
-        return float(row.iloc[0]['Raw_Concentration'])
+        mean = float(row.iloc[0]['Raw_Concentration'])
+        sd_log10 = float(row.iloc[0]['Uncertainty_Log10_SD'])
+        return mean, sd_log10
 
-    # Fallback: use Greywater and apply source factor
+    # 2. Roof runoff → Stormwater proxy
+    if matrix == 'Rooftop rainwater':
+        storm_row = raw_conc_df[
+            (raw_conc_df['Pathogen'] == pathogen_name) &
+            (raw_conc_df['Matrix'] == 'Stormwater')
+        ]
+        if not storm_row.empty:
+            mean = float(storm_row.iloc[0]['Raw_Concentration'])
+            sd_log10 = float(storm_row.iloc[0]['Uncertainty_Log10_SD'])
+            factor = SOURCE_WATER.get('Rooftop rainwater', 1.0)
+            return mean * factor, sd_log10
+
+    # 3. Final fallback → Greywater
     grey_row = raw_conc_df[
         (raw_conc_df['Pathogen'] == pathogen_name) &
         (raw_conc_df['Matrix'] == 'Greywater')
     ]
     if not grey_row.empty:
-        base_val = float(grey_row.iloc[0]['Raw_Concentration'])
+        mean = float(grey_row.iloc[0]['Raw_Concentration'])
+        sd_log10 = float(grey_row.iloc[0]['Uncertainty_Log10_SD'])
         factor = SOURCE_WATER.get(matrix, 1.0)
-        return base_val * factor
+        return mean * factor, sd_log10
 
-    # If nothing available at all
     raise ValueError(
-        f"No raw concentration data for pathogen {pathogen_name} in matrix {matrix} "
-        f"or Greywater fallback"
+        f"No raw concentration data for pathogen '{pathogen_name}' "
+        f"in matrix '{matrix}' and no valid fallback"
     )
 
 
@@ -239,30 +255,60 @@ def calculate_dose(conc, vol, pathogen, activity):
         return conc * vol
 
 def simulate_mc(activity, pathogen, treatment_steps=None, scenario_name="",
-                source='Greywater', n_iter=10000, population=200, degraded_factor=DEGRADED_FACTOR_DEFAULT):
+                source='Greywater', n_iter=10000, population=200, degraded_factor=DEGRADED_FACTOR_DEFAULT, occurrence_mode="stochastic"):
     """Runs MC for ONE pathogen and ONE activity. Returns a row-wise dataframe of outcomes.
 
     IMPORTANT: This now returns BOTH per-person and population-level metrics.
+ 
+    occurrence_mode:
+      - 'deterministic': use mean concentration only
+      - 'stochastic': sample from lognormal (default)
     """
-    pathogen_type = pathogen.get('Type', 'bacteria')
-    raw_conc = get_raw_concentration(pathogen['Pathogen'], matrix=source)
-    if raw_conc is None:
-        raise ValueError(f"No raw concentration data for pathogen {pathogen['Pathogen']} in matrix {source}")
+    
+    if 'Type' not in pathogen:
+        raise ValueError(
+            f"Pathogen '{pathogen['Pathogen']}' is missing 'Type' "
+            "(bacteria / virus / protozoa)"
+        )
+    pathogen_type = pathogen['Type']
 
-    # Matrix/source adjustment
-    raw_conc *= SOURCE_WATER.get(source, 1.0)
+    
+    mean_raw, sd_log10 = get_raw_concentration(
+        pathogen['Pathogen'],
+        matrix=source
+    )
 
-    # Treatment (log10) removal
-    log_removal = sample_log_removal_sequence(
-        treatment_steps,
-        pathogen_type,
-        raw_conc,
-        degraded_factor=degraded_factor
-    ) if treatment_steps else 0.0
-    adjusted_conc = max(raw_conc / (10 ** log_removal), 1e-6)
+    # --- Sample raw concentration (occurrence model) ---
+    if occurrence_mode == "deterministic":
+        # Use mean concentration only (for debugging / sensitivity)
+        raw_conc_samples = np.full(n_iter, mean_raw)
+    else:
+        # Log10-normal occurrence uncertainty from CSV
+        raw_conc_samples = 10 ** np.random.normal(
+            loc=np.log10(mean_raw),
+            scale=sd_log10,
+            size=n_iter
+        )
 
-    # Concentration & exposure distributions
-    conc = np.random.lognormal(mean=np.log(adjusted_conc), sigma=0.5, size=n_iter)
+
+    # --- Apply treatment per iteration ---
+    adjusted_conc = np.zeros(n_iter)
+    for i in range(n_iter):
+        lr = sample_log_removal_sequence(
+            treatment_steps,
+            pathogen_type,
+            raw_conc_samples[i],
+            degraded_factor=degraded_factor
+        ) if treatment_steps else 0.0
+
+        adjusted_conc[i] = max(
+            raw_conc_samples[i] / (10 ** lr),
+            1e-9
+        )
+
+    # --- Final concentration used for exposure ---
+    conc = adjusted_conc
+
     vol  = np.random.lognormal(mean=np.log(activity['Volume_L']), sigma=0.5, size=n_iter)
     vol  = np.clip(vol, a_min=1e-8, a_max=None)
 
